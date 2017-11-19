@@ -2,15 +2,17 @@ import React from 'react';
 import { StyleSheet, Text, View ,Platform} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {TabNavigator,StackNavigator,DrawerNavigator} from 'react-navigation';
-import { purple, white,red,lightBlue } from './utils/colors'
+import { purple, white,red,lightBlue } from './utils/colors';
+import Deck from './components/Deck';
+import NewDeck from './components/NewDeck';
 
-function deck() {
+/*function deck() {
     return (
         <View style={styles.head}>
             <Text>Deck</Text>
         </View>
     )
-}
+}*/
 
 function newDeck() {
     return (
@@ -21,8 +23,8 @@ function newDeck() {
 }
 
 const Tabs = TabNavigator({
-    deck:{
-        screen:deck,
+    Deck:{
+        screen:Deck,
         navigationOptions: {
             tabBarLabel: 'DECK',
             tabBarIcon: ({ tintColor }) => <Ionicons name='ios-bookmarks' size={40} color={tintColor} />
