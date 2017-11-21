@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View ,Platform,TouchableOpacity} from 'react-native';
 import {lblack,white} from '../utils/colors';
 
+// It display the new deck tab data
 class NewDeck extends Component {
   render(){
     return(

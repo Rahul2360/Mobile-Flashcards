@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View ,Platform,TouchableOpacity} from 'react-native';
-import {lblack,white,lpink} from '../utils/colors';
+import {lblack,white,lpink,lightBlue} from '../utils/colors';
 import Button from '../components/Button';
 
 class Details extends Component {
@@ -12,12 +12,14 @@ class Details extends Component {
     }
   }
   render(){
+    // Following code Display the deck Details in which heading , length of card, and a button is diplayed
     const deck= this.props.navigation.state.params.deck;
     return(
       <View style={styles.container}>
         <Text style={styles.ctitle}>{deck.title}</Text>
         <Text style={styles.detail}>{deck.questions.length}  cards</Text>
-        <Button onPress={()=>this.props.navigation.navigate('AddCard')}>Add Card</Button>
+        <Text></Text>
+        <Button onPress={()=>this.props.navigation.navigate('CardAdd')}>Add Card</Button>
       </View>
     )
   }
@@ -27,16 +29,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: lblack,
-    paddingTop:20,
-    paddingLeft:15,
+    padding:20,
   },
   ctitle:{
     fontSize:30,
-    paddingLeft:20,
-    paddingBottom:10,
-    paddingTop:10,
+    padding:10,
     color:white,
     textAlign:'center',
+    backgroundColor:lblack,
   },
   detail:{
     textAlign:'center',

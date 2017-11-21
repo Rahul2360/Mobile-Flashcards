@@ -58,7 +58,7 @@ class Deck extends Component {
             <TouchableOpacity
               key={dtitle}
               onPress={()=>this.props.navigation.navigate(
-                'Detail',
+                'Details',
                 {deck:this.state[dtitle]}
               )}
               >

@@ -8,22 +8,6 @@ import NewDeck from './components/NewDeck';
 import Details from './components/Details';
 import CardAdd from './components/CardAdd';
 
-/*function deck() {
-    return (
-        <View style={styles.head}>
-            <Text>Deck</Text>
-        </View>
-    )
-}*/
-
-/*function newDeck() {
-    return (
-        <View style={styles.head}>
-            <Text>New Deck</Text>
-        </View>
-    )
-}*/
-
 const Tabs = TabNavigator({
   // Following code is similar to the udacifitness app
     Deck:{
@@ -41,6 +25,7 @@ const Tabs = TabNavigator({
      },
     },
 },
+  // Following are the tab options and navigationOptions.
     {
    navigationOptions: {
      header: null
@@ -61,6 +46,7 @@ const Tabs = TabNavigator({
    }
 })
 
+// Following is the main screen of the app.
 const MainNavigator = StackNavigator({
    Main:{
      screen:Tabs,
