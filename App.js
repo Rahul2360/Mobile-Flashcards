@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View ,Platform} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {TabNavigator,StackNavigator,DrawerNavigator} from 'react-navigation';
-import { purple, white,red,lightBlue } from './utils/colors';
+import { purple, white,red,lightBlue,lblack} from './utils/colors';
 import Deck from './components/Deck';
 import NewDeck from './components/NewDeck';
+import Details from './components/Details';
 
 /*function deck() {
     return (
@@ -23,6 +24,7 @@ import NewDeck from './components/NewDeck';
 }*/
 
 const Tabs = TabNavigator({
+  // Following code is similar to the udacifitness app
     Deck:{
         screen:Deck,
         navigationOptions: {
@@ -61,6 +63,15 @@ const Tabs = TabNavigator({
 const MainNavigator = StackNavigator({
    Main:{
      screen:Tabs,
+   },
+   Details: {
+     screen:Details,
+     navigationOptions: {
+       headerTintColor: white,
+       headerStyle: {
+         backgroundColor:lblack,
+       }
+     }
    },
 
  })
