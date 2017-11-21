@@ -14,13 +14,13 @@ import NewDeck from './components/NewDeck';
     )
 }*/
 
-function newDeck() {
+/*function newDeck() {
     return (
         <View style={styles.head}>
             <Text>New Deck</Text>
         </View>
     )
-}
+}*/
 
 const Tabs = TabNavigator({
     Deck:{
@@ -30,8 +30,8 @@ const Tabs = TabNavigator({
             tabBarIcon: ({ tintColor }) => <Ionicons name='ios-bookmarks' size={40} color={tintColor} />
     },
     },
-    newDeck:{
-        screen:newDeck,
+    NewDeck:{
+        screen:NewDeck,
         navigationOptions: {
            tabBarLabel: 'NEW DECK',
            tabBarIcon: ({ tintColor }) => <Ionicons name='ios-bookmarks' size={40} color={tintColor} />
