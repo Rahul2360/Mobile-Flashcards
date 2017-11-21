@@ -6,6 +6,7 @@ import { purple, white,red,lightBlue,lblack} from './utils/colors';
 import Deck from './components/Deck';
 import NewDeck from './components/NewDeck';
 import Details from './components/Details';
+import CardAdd from './components/CardAdd';
 
 /*function deck() {
     return (
@@ -73,6 +74,15 @@ const MainNavigator = StackNavigator({
        }
      }
    },
+   CardAdd: {
+     screen:CardAdd,
+     navigationOptions: {
+       headerTintColor: white,
+       headerStyle: {
+         backgroundColor:lblack,
+       }
+     }
+   }
 
  })
 
