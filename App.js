@@ -7,6 +7,7 @@ import Deck from './components/Deck';
 import NewDeck from './components/NewDeck';
 import Details from './components/Details';
 import CardAdd from './components/CardAdd';
+import Quiz from './components/Quiz';
 
 const Tabs = TabNavigator({
   // Following code is similar to the udacifitness app
@@ -15,14 +16,14 @@ const Tabs = TabNavigator({
         navigationOptions: {
             tabBarLabel: 'DECK',
             tabBarIcon: ({ tintColor }) => <Ionicons name='ios-bookmarks' size={40} color={tintColor} />
-    },
+          },
     },
     NewDeck:{
         screen:NewDeck,
         navigationOptions: {
            tabBarLabel: 'NEW DECK',
            tabBarIcon: ({ tintColor }) => <Ionicons name='ios-bookmarks' size={40} color={tintColor} />
-     },
+         },
     },
 },
   // Following are the tab options and navigationOptions.
@@ -68,8 +69,16 @@ const MainNavigator = StackNavigator({
          backgroundColor:lblack,
        }
      }
+   },
+   Quiz: {
+     screen:Quiz,
+     navigationOptions: {
+       headerTintColor: white,
+       headerStyle: {
+         backgroundColor:lblack,
+       }
+     }
    }
-
  })
 
 

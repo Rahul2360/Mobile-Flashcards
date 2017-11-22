@@ -20,6 +20,7 @@ class Details extends Component {
         <Text style={styles.detail}>{deck.questions.length}  cards</Text>
         <Text></Text>
         <Button onPress={()=>this.props.navigation.navigate('CardAdd')}>Add Card</Button>
+        <Button onPress={()=>this.props.navigation.navigate('Quiz',{deck})}>Start Quiz</Button>
       </View>
     )
   }
