@@ -8,6 +8,11 @@ import Button from './Button';
                               showanswer = this state display the answer. initially answer is hidden
                               quizcomplete = this state is used for the completion of the quiz , initially quiz is not complete*/
 class Quiz extends Component {
+  static navigationOptions =({navigation}) => {
+    return{
+      title:`Quiz`
+    }
+  }
   state = {
     currentquestion:0,
     showquestion:true,

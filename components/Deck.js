@@ -2,10 +2,22 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View ,Platform,TouchableOpacity} from 'react-native';
 import {black,gray,lblack} from '../utils/colors';
 import Decks from '../components/Decks';
+import {getDecks} from '../utils/api'
 
 // Questions list
 class Deck extends Component {
-  state =
+  state ={}
+  componentDidMount() {
+    getDecks().then((deckArray) => {
+      if(deckArray){
+        this.setState({
+          deck: JSON.parse(deckArray)
+        })
+      }
+    })
+  }
+
+  /*state =
     {
     React: {
       title: 'React',
@@ -42,11 +54,14 @@ class Deck extends Component {
         }
       ]
     }
-  }
+  }*/
   render() {
     /*The Object.keys() method returns an array of a given object's own enumerable
      properties, in the same order as that provided by a for...in loop*/
-    const deckArray=Object.keys(this.state);
+     let deckArray =[];
+     if (this.state.deckArray) {
+            deckArray = Object.keys(this.state.deckArray);
+          }
     return (
       /* Touchable opacity is a wrapper for making views respond properly to touches. On press down, the opacity of the
          wrapped view is decreased, dimming it.
@@ -59,10 +74,10 @@ class Deck extends Component {
               key={dtitle}
               onPress={()=>this.props.navigation.navigate(
                 'Details',
-                {deck:this.state[dtitle]}
+                {deck:this.state.deckArray[dtitle]}
               )}
               >
-               <Decks deck={this.state[dtitle]}/>
+               <Decks deck={this.state.deckArray[dtitle]}/>
             </TouchableOpacity>
           )
         })}

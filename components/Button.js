@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderRadius: 5,
     marginBottom: 15,
-    padding: 10
+    padding: 10,
+    marginTop:10,
+    marginRight:10
   }
 })
