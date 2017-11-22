@@ -16,7 +16,19 @@ There are some prerequisities for this app like ```React-native``` ```react``` `
  This app is tested on the **Mot0 G3** android phone.
 
 ### Following are the screenshot of the app
-['screenshot 1'](images\Screenshot_20171122-202844.png)
-['screenshot 2'](images\Screenshot_20171122-202855.png)
-['screenshot 3'](images\Screenshot_20171122-202944.png)
-['screenshot 4'](images\Screenshot_20171122-202949.png)
+
+Screenshot 1
+
+![Alt text](/images/Screenshot_20171122-202844.png)
+
+Screenshot 2
+
+![Alt text](/images/Screenshot_20171122-202855.png)
+
+Screenshot 3
+
+![Alt text](/images/Screenshot_20171122-202944.png)
+
+Screenshot 4
+
+![Alt text](/images/Screenshot_20171122-202949.png)
