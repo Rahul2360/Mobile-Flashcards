@@ -14,6 +14,7 @@ componentDidMount() {
   })
 }
 
+// This functions add the card in the particular deck with his question and answer
   submit =() => {
     if(this.state.question){
       addCardToDeck(this.state.deck.title, {

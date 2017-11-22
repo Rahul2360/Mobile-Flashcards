@@ -8,10 +8,11 @@ import NewDeck from './components/NewDeck';
 import Details from './components/Details';
 import CardAdd from './components/CardAdd';
 import Quiz from './components/Quiz';
-import {setLocalNotifications} from './utils/helper'
+import {setLocalNotification} from './utils/helper'
 
 const Tabs = TabNavigator({
   // Following code is similar to the udacifitness app
+  // This helps us to give the two different tabs.
     Deck:{
         screen:Deck,
         navigationOptions: {
@@ -82,11 +83,10 @@ const MainNavigator = StackNavigator({
    }
  })
 
-
 export default class App extends React.Component {
-/*  componentDidMount() {
-    setLocalNotifications()
-  }*/
+ componentDidMount() {
+    setLocalNotification()
+  }
   render() {
     return (
       <View style={styles.container}>

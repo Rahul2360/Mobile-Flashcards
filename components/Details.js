@@ -5,6 +5,7 @@ import Button from '../components/Button';
 
 class Details extends Component {
   // This code is pick from the udacifitness app
+  // This code display the heading of the page.
   static navigationOptions =({navigation}) => {
     const {deck} = navigation.state.params
     return{
@@ -13,13 +14,13 @@ class Details extends Component {
   }
   render(){
     // Following code Display the deck Details in which heading , length of card, and a button is diplayed
-    const deck= this.props.navigation.state.params.deck;
+    const {deck,refresh}= this.props.navigation.state.params;
     return(
       <View style={styles.container}>
         <Text style={styles.ctitle}>{deck.title}</Text>
         <Text style={styles.detail}>{deck.questions.length}  cards</Text>
         <Text></Text>
-        <Button onPress={()=>this.props.navigation.navigate('CardAdd',{deck})}>Add Card</Button>
+        <Button onPress={()=>this.props.navigation.navigate('CardAdd',{deck,refresh})}>Add Card</Button>
         <Button onPress={()=>this.props.navigation.navigate('Quiz',{deck})}>Start Quiz</Button>
       </View>
     )

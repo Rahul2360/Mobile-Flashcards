@@ -12,3 +12,5 @@ export const lblack='#202020'
 export const lpink='#FD3F7F'
 export const green='#00ff00'
 export const dred='#ff0000'
+
+// They are the different colors which are used in the app

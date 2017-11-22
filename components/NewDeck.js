@@ -6,17 +6,28 @@ import Button from '../components/Button'
 
 // It display the new deck tab data
 class NewDeck extends Component {
+  // Follwong function add a new deck in the stack.
   submit = () => {
       if(this.state.data){
         saveDeckTitle(this.state.data).then(() => {
           getDeck(this.state.data).then((deck) => {
             this.props.navigation.navigate(
               'Details',
-              {deck}
+              {deck,refresh:this.refreshDeck}
             )
           })
         })
       }
+  }
+  // It refreshes the decks
+  refreshDeck =() => {
+    getDecks().then((deckArray)=> {
+      if (deckArray) {
+          this.setState({
+           deckArray: JSON.parse(deckArray)
+          })
+        }
+    })
   }
   render(){
     return(

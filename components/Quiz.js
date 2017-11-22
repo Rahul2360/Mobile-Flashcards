@@ -2,18 +2,19 @@ import React,{Component} from 'react';
 import { StyleSheet, Text, View ,Platform} from 'react-native';
 import {lblack,white,lpink,red,green,dred} from '../utils/colors';
 import Button from './Button';
-import {clearLocalNotifications,setLocalNotifications} from '../utils/helper';
+import {clearLocalNotification,setLocalNotification} from '../utils/helper';
 
-/* Following are four states currentquestion = which question display on the screen
-                              showquestion = This state display the question initially
-                              showanswer = this state display the answer. initially answer is hidden
-                              quizcomplete = this state is used for the completion of the quiz , initially quiz is not complete*/
 class Quiz extends Component {
+  // This display the heading of the page
   static navigationOptions =({navigation}) => {
     return{
       title:`Quiz`
     }
   }
+  /* Following are four states currentquestion = which question display on the screen
+                                showquestion = This state display the question initially
+                                showanswer = this state display the answer. initially answer is hidden
+                                quizcomplete = this state is used for the completion of the quiz , initially quiz is not complete*/
   state = {
     currentquestion:0,
     showquestion:true,
@@ -56,8 +57,16 @@ nextquestion = (correct) => {
     this.setState({
       quizcomplete:true,
     })
-    clearLocalNotifications().then(setLocalNotifications)
+  //  clearLocalNotification().then(setLocalNotification)
   }
+}
+// Following function helps to restart the quiz
+restart =() => {
+  this.setState({
+    currentquestion:0,
+    quizcomplete:false,
+    score:this.state.questionslength
+  })
 }
   render() {
     const{currentquestion,deck,quizcomplete,showquestion,showanswer,questionslength,score}=this.state;
@@ -75,6 +84,8 @@ nextquestion = (correct) => {
         </View>}
         {deck && quizcomplete && <View>
           <Text style={styles.score}>Score: {score} out of {questionslength}</Text>
+          <Button onPress={this.restart}>Restart quiz</Button>
+          <Button onPress={() => this.props.navigation.goBack()}>Back</Button>
         </View>}
       </View>
     )

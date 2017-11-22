@@ -4,6 +4,8 @@ import { Notifications, Permissions } from 'expo'
 
 const NOTIFICATION_KEY = 'FlashCards:notifications'
 
+// Following Data or code is pick up from the udacifitness App
+// That is make by the udacity teacher's
 export function clearLocalNotification () {
    return AsyncStorage.removeItem(NOTIFICATION_KEY)
      .then(Notifications.cancelAllScheduledNotificationsAsync)
@@ -12,7 +14,7 @@ export function clearLocalNotification () {
  function createNotification () {
    return {
     title: 'Study reminder!',
-     body: " don't forget to do your study today!",
+     body: " don't forget to log your stats for today!",
      ios: {
        sound: true,
     },
