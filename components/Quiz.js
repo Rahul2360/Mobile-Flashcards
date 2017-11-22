@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import { StyleSheet, Text, View ,Platform} from 'react-native';
-import {lblack,white,lpink,red} from '../utils/colors';
+import {lblack,white,lpink,red,green,dred} from '../utils/colors';
 import Button from './Button';
 
 /* Following are four states currentquestion = which question display on the screen
                               showquestion = This state display the question initially
                               showanswer = this state display the answer. initially answer is hidden
-                              quizcomplete = this state is used for the completion of the quiz */
+                              quizcomplete = this state is used for the completion of the quiz , initially quiz is not complete*/
 class Quiz extends Component {
   state = {
     currentquestion:0,
@@ -33,8 +33,27 @@ flip = () => {
     showanswer: !this.state.showanswer
   })
 }
+// this function helps to get the next question of the question is InCorrect or correct and if all the questions are complete then ot display th score
+nextquestion = (correct) => {
+  const indexofnextquestion= this.state.currentquestion +1;
+  if(!correct) {
+    this.setState({
+      score:this.state.score -1
+    })
+  }
+  if(indexofnextquestion< this.state.questionslength){
+    this.setState({
+      currentquestion:indexofnextquestion,
+    })
+  }
+  else {
+    this.setState({
+      quizcomplete:true,
+    })
+  }
+}
   render() {
-    const{currentquestion,deck,quizcomplete,showquestion,showanswer}=this.state;
+    const{currentquestion,deck,quizcomplete,showquestion,showanswer,questionslength,score}=this.state;
     //const {display}={currentquestion+1}/{deck.questions.length};
     return (
       <View style={styles.container}>
@@ -44,6 +63,11 @@ flip = () => {
            {showquestion && <Button style={styles.button} onPress={this.flip}>Show Answer</Button>}
            {showanswer && <Text style={styles.heading}>{deck.questions[currentquestion].answer}</Text>}
            {showanswer && <Button style={styles.button} onPress={this.flip}>Show Question</Button>}
+           <Button style={styles.correct} onPress={()=>this.nextquestion(true)}>Correct</Button>
+           <Button style={styles.incorrect} onPress={()=>this.nextquestion(false)}>InCorrect</Button>
+        </View>}
+        {deck && quizcomplete && <View>
+          <Text style={styles.score}>Score: {score} out of {questionslength}</Text>
         </View>}
       </View>
     )
@@ -73,7 +97,20 @@ const styles = StyleSheet.create({
   button:{
     backgroundColor:red,
     color:white,
-  }
+  },
+  correct:{
+    backgroundColor:green,
+    color:white,
+  },
+  incorrect:{
+    backgroundColor:dred,
+    color:white,
+  },
+  score:{
+    color:white,
+    fontSize:40,
+    textAlign:'center',
+  },
 });
 
 export default Quiz
