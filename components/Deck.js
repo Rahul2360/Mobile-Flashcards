@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View ,Platform,TouchableOpacity} from 'react-native';
+import { ScrollView,StyleSheet, Text, View ,Platform,TouchableOpacity} from 'react-native';
 import {black,gray,lblack} from '../utils/colors';
 import Decks from '../components/Decks';
 import {getDecks} from '../utils/api'
@@ -11,7 +11,7 @@ class Deck extends Component {
     getDecks().then((deckArray) => {
       if(deckArray){
         this.setState({
-          deck: JSON.parse(deckArray)
+          deckArray: JSON.parse(deckArray)
         })
       }
     })
@@ -68,6 +68,7 @@ class Deck extends Component {
          Opacity is controlled by wrapping the children in an Animated.View, which is added to the view hiearchy. Be aware
          that this can affect layout.*/
       <View style={styles.container}>
+        <ScrollView>
         {deckArray.map((dtitle) => {
           return (
             <TouchableOpacity
@@ -81,6 +82,7 @@ class Deck extends Component {
             </TouchableOpacity>
           )
         })}
+      </ScrollView>
       </View>
     )
   }

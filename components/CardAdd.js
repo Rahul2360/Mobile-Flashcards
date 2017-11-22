@@ -8,7 +8,7 @@ import Button from '../components/Button'
 class CardAdd extends Component {
 state:{}
 componentDidMount() {
-  const deck = this.props.navigation.state.params;
+  const {deck} = this.props.navigation.state.params;
   this.setState({
     deck
   })

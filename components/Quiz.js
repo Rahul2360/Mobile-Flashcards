@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { StyleSheet, Text, View ,Platform} from 'react-native';
 import {lblack,white,lpink,red,green,dred} from '../utils/colors';
 import Button from './Button';
+import {clearLocalNotifications,setLocalNotifications} from '../utils/helper';
 
 /* Following are four states currentquestion = which question display on the screen
                               showquestion = This state display the question initially
@@ -55,6 +56,7 @@ nextquestion = (correct) => {
     this.setState({
       quizcomplete:true,
     })
+    clearLocalNotifications().then(setLocalNotifications)
   }
 }
   render() {
